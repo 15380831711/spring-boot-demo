@@ -41,3 +41,13 @@ test {
 //bootRun {
 //    jvmArgs "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=8000"
 //}
+
+// task 测试
+
+task hello {
+    println 'Hello world!'
+}
+
+hello {
+    println 'Hello world!!!'
+}
