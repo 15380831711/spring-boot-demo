@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -36,6 +37,19 @@ public class HelloController<E> {
 
     @Autowired
     private FileService fileSrv;
+
+    /**
+     * 测试 application/x-www-form-urlencoded
+     * 
+     * @author yilabao
+     * @date 2020年9月27日
+     * @param params
+     * @return HttpResult<Map<String,String>>
+     */
+    @RequestMapping(value = "/user/urlencoded", method = RequestMethod.POST)
+    public HttpResult<Map<String, String>> postUser(@RequestParam Map<String, String> params) {
+        return new HttpResult<Map<String, String>>(200, "ok", params);
+    }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public HttpResult<List<User>> listUser() {
